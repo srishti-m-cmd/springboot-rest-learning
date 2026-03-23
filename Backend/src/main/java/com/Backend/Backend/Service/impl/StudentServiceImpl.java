@@ -42,6 +42,14 @@ public class StudentServiceImpl implements StudentService {
         return modelMapper.map(student, StudentDto.class);
     }
 
+    @Override
+    public void deleteStudentById(long id) {
+        if(!studentRepository.existsById(id)){
+            throw new IllegalArgumentException("Student does not exist by id:"+id);
+        }
+        studentRepository.deleteById(id);
+    }
+
 
 }
 
