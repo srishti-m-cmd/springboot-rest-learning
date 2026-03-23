@@ -20,8 +20,9 @@ public class StudentController {
     public List<StudentDTO> getAllStudents(){
         return studentService.getAllStudents();
     }
+
     @GetMapping("/students/{id}")
-    public StudentDTO getStudentById(@PathVariable Long id){
-        return new StudentDTO(18,"srishtiramesh","srishtirameshk@gmail.com");
+    public String getStudentById(@PathVariable Long id){
+        return studentService.getStudentById(id);
     }
 }
