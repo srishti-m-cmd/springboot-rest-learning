@@ -4,6 +4,7 @@ import com.Backend.Backend.DTO.AddStudentRequestDto;
 import com.Backend.Backend.DTO.StudentDto;
 
 import java.util.List;
+import java.util.Map;
 
 public interface StudentService {
     List<StudentDto> getAllStudents();
@@ -15,4 +16,6 @@ public interface StudentService {
     void deleteStudentById(long id);
 
     StudentDto updateStudent(Long id, AddStudentRequestDto addStudentRequestDto);
+
+    StudentDto updatePartialStudent(Long id, Map<String, Object> updates);
 }
