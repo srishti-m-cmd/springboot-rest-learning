@@ -1,11 +1,11 @@
 package com.Backend.Backend.Service;
 
-import com.Backend.Backend.DTO.StudentDTO;
+import com.Backend.Backend.DTO.StudentDto;
 
 import java.util.List;
 
 public interface StudentService {
-    List<StudentDTO> getAllStudents();
+    List<StudentDto> getAllStudents();
 
-    StudentDTO getStudentById(Long id);
+    StudentDto getStudentById(Long id);
 }

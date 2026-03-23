@@ -1,6 +1,6 @@
 package com.Backend.Backend.Service.impl;
 
-import com.Backend.Backend.DTO.StudentDTO;
+import com.Backend.Backend.DTO.StudentDto;
 import com.Backend.Backend.Repository.StudentRepository;
 import com.Backend.Backend.Service.StudentService;
 import com.Backend.Backend.entity.Student;
@@ -18,21 +18,20 @@ public class StudentServiceImpl implements StudentService {
     private final ModelMapper modelMapper;
 
     @Override
-    public List<StudentDTO> getAllStudents() {
+    public List<StudentDto> getAllStudents() {
         List<Student> students = studentRepository.findAll();
         return students
                 .stream()
-                .map(student ->
-            new StudentDTO(student.getId(), student.getName(),
-                    student.getEmail()))
+                .map(student -> modelMapper.map(student,StudentDto.class))
+
                 .toList();
 
     }
 
     @Override
-    public StudentDTO getStudentById(Long id) {
+    public StudentDto getStudentById(Long id) {
         Student student= studentRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("student not found with ID: "+id));
-        return modelMapper.map(student, StudentDTO.class);
+        return modelMapper.map(student, StudentDto.class);
     }
 
 

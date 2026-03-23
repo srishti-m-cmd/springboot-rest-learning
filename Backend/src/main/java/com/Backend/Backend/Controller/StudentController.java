@@ -1,6 +1,6 @@
 package com.Backend.Backend.Controller;
 
-import com.Backend.Backend.DTO.StudentDTO;
+import com.Backend.Backend.DTO.StudentDto;
 import com.Backend.Backend.Service.StudentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,12 +17,12 @@ public class StudentController {
 
 
     @GetMapping("/students")
-    public List<StudentDTO> getAllStudents(){
+    public List<StudentDto> getAllStudents(){
         return studentService.getAllStudents();
     }
 
     @GetMapping("/students/{id}")
-    public String getStudentById(@PathVariable Long id){
+    public StudentDto getStudentById(@PathVariable Long id){
         return studentService.getStudentById(id);
     }
 }
